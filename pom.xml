@@ -40,7 +40,26 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- 第二次引进 jpa jdbc java fastjson -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
 
+		<dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>1.2.6</version>
+		</dependency>
 
 		<!-- xstream 采用开源框架xstream来实现Java类到xml的转换-->
 		<dependency>

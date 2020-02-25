@@ -48,7 +48,7 @@ public class WeiXinMenu {
         CommonButton btn13=new CommonButton();
         btn13.setName("彪");
         btn13.setType("view");
-        btn13.setUrl("http://xiaoxu.022ds.cn");
+        btn13.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6dab4029668e1ee4&redirect_uri=http://32fbb4dd.ngrok.io/text&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect");
 
         ComplexButton mainBtn1=new ComplexButton();
         mainBtn1.setName("个人主页");

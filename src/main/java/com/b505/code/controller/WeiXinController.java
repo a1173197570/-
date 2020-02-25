@@ -32,7 +32,7 @@ public class WeiXinController {
         //用户同意授权要跳转的页面
         if(!"authdeny".equals(code)){
 
-            WeixinOauth2Token weixinOauth2Token= AdvancedUtil.getOauth2Token("","",code);
+            WeixinOauth2Token weixinOauth2Token= AdvancedUtil.getOauth2Token("wx6dab4029668e1ee4","e68f6e030d57df0413d7749ccca1e418",code);
 
             //网页授权凭证
             String accessToken=weixinOauth2Token.getAccessToken();
@@ -48,7 +48,7 @@ public class WeiXinController {
             //将weiXinUser保存在数据库里面，或者于数据库里面的信息进行比对，看看是否存在。
 
 
-            return "index";
+            return "text";
 
         }
 
