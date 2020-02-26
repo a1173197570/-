@@ -2,7 +2,8 @@ package com.b505.util;
 
 import java.awt.*;
 
-import com.b505.code.entity.WeiXinUser;
+import com.b505.code.entity.SNSUserInfo;
+
 import com.b505.pojo.WeixinOauth2Token;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -66,7 +67,7 @@ public class AdvancedUtil {
      * @param openId
      *
      */
-    public static WeiXinUser getWeiXinUser(String accessToken,String openId){
+    public static SNSUserInfo getSNSUserInfo(String accessToken, String openId){
 
         //拼接请求的地址
         String requestUrl="https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
@@ -76,34 +77,34 @@ public class AdvancedUtil {
         //获取网页授权的凭证
         JSONObject jsonObject=JsapiTicketUnit.httpRequest(requestUrl,"GET",null);
 
-        WeiXinUser weiXinUser=null;
+        SNSUserInfo snsUserInfo=null;
 
         if(null!=jsonObject){
 
 
             try {
 
-                weiXinUser=new WeiXinUser();
+                snsUserInfo=new SNSUserInfo();
                 //用户的标识
-                weiXinUser.setOpenId(jsonObject.getString("openid"));
+                snsUserInfo.setOpenId(jsonObject.getString("openid"));
                 //昵称
-                weiXinUser.setNickname(jsonObject.getString("nickname"));
+                snsUserInfo.setNickname(jsonObject.getString("nickname"));
                 //性别（1是男 2是女 0是未知）
-                weiXinUser.setSex(jsonObject.getInt("sex"));
+                snsUserInfo.setSex(jsonObject.getInt("sex"));
                 //用户所在的国家
-                weiXinUser.setCountry(jsonObject.getString("country"));
+                snsUserInfo.setCountry(jsonObject.getString("country"));
                 //用户所在的省份
-                weiXinUser.setProvince(jsonObject.getString("province"));
+                snsUserInfo.setProvince(jsonObject.getString("province"));
                 //用户所在的城市
-                weiXinUser.setCity(jsonObject.getString("city"));
+                snsUserInfo.setCity(jsonObject.getString("city"));
                 //用户的头像
-                weiXinUser.setHeadImgUrl(jsonObject.getString("headimgurl"));
-                //用户的特权信息
-                /* weiXinUser.setPrivilegeList(JSONArray.toList(jsonObject.getJSONArray("privilege"), List.class));*/
+                snsUserInfo.setHeadImgUrl(jsonObject.getString("headimgurl"));
+                //用户的特权信
+                snsUserInfo.setPrivilegeList(JSONArray.toList(jsonObject.getJSONArray("privilege"), List.class));
 
             }catch (Exception e){
 
-                weiXinUser=null;
+                snsUserInfo=null;
                 int errorCode=jsonObject.getInt("errcode");
                 String errorMsg=jsonObject.getString("errmsg");
                 logger.error("获取用户信息失败",errorCode,errorMsg);
@@ -113,7 +114,7 @@ public class AdvancedUtil {
 
         }
 
-        return weiXinUser;
+        return snsUserInfo;
 
     }
 
