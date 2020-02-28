@@ -4,6 +4,8 @@ import java.awt.*;
 
 import com.b505.code.entity.SNSUserInfo;
 
+import com.b505.pojo.AccessToken;
+import com.b505.pojo.Template;
 import com.b505.pojo.WeixinOauth2Token;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -117,6 +119,66 @@ public class AdvancedUtil {
         return snsUserInfo;
 
     }
+
+/*    public static int sendMessageBefore(Template template) {
+        AccessToken token = null;
+        String appid = "";
+        String appsecret = "";
+        token = JsapiTicketUnit.getAccessToken(appid, appsecret);
+
+        return	AdvancedUtil.SendTemplateMsg(token.getToken(), template);
+
+
+    }*/
+
+    /*
+    *  发送模板消息
+    */
+    public static int sendTemplateMsg(String accessToken, Template template){
+
+        int result=0;
+
+        String requestUrl="https://api.weixin.qq.com/cgi-bin/message/template/send?access_token=ACCESS_TOKEN";
+
+        requestUrl=requestUrl.replace("ACCESS_TOKEN",accessToken);
+
+        JSONObject jsonObject=JsapiTicketUnit.httpRequest(requestUrl,"POST",template.toJSON());
+
+        if(null!=jsonObject){
+
+            int errorCode= jsonObject.getInt("errcode");
+            String errorMsg=jsonObject.getString("errmsg");
+
+            if(0 == errorCode){
+
+                result=1;
+
+                System.out.println("模板消息发送成功 errcode{}"+errorCode+"-----"+errorMsg);
+            }
+
+           else {
+                System.out.println("模板消息发送失败 errcode{}" + errorCode + "-----" + errorMsg);
+            }
+
+        }
+
+        return result;
+
+    }
+    public static String getJSApiTicket(){
+        //获取token
+        AccessToken accessToken= JsapiTicketUnit.getAccessToken("wx6dab4029668e1ee4","e68f6e030d57df0413d7749ccca1e418");
+        System.out.println(accessToken.getToken());
+
+        String urlStr="https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token="+accessToken.getToken()+"&type=jsapi";
+
+        JSONObject jsonObject=JsapiTicketUnit.httpRequest(urlStr,"GET","10000");
+
+
+        return (String)jsonObject.get("ticket");
+
+    }
+
 
 
 

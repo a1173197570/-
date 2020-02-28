@@ -50,5 +50,6 @@ public class SNSUserInfo {
     @Column
     @ElementCollection
     private List<String> privilegeList;
+
 }
 

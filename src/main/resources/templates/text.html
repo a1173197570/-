@@ -2,11 +2,151 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>徐先生</title>
+    <style>
+        *{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;}
+        .row:after{
+            content:"";
+            clear: both;
+            display: block;
+        }
+        [class*="col-"]{
+            float: left;
+            padding: 15px;
+        }
+        html{
+            font-family: "Lucida Sans",sans-serif;
+        }
+        .header{
+            border-radius: 10px;
+            background-color: #9933cc;
+            color: #ffffff;
+            padding: 15px;
+        }
+        .header:hover{
+            cursor: pointer;
+            trasform:scale(0.9);
+        }
+        .menu ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .menu li{
+            border-radius: 10px;
+            background: #33b5e5;
+            padding:8px;
+            margin-bottom: 7px;
+            color: #ffffff;
+            transition: ease 0.1s;
+        }
+        .menu li:hover {
+            cursor: pointer;
+            display: block;
+            transform: scale(1.05);
+            transition: ease 0.1s;
+        }
+        .menu li:hover{
+            background: #0099cc;
+        }
+        .aside{
+            border-radius:10px;
+            background: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+        }
+        .aside:hover{
+            cursor: pointer;
+        }
+        .footer:hover{
+            cursor: pointer;
+        }
+        .text{
+            text-align: right;
+        }
+        .footer{
+            background: #0099cc;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+        .col-1{width:8.33%;}
+        .col-2{width:16.66%;}
+        .col-3{width:25%;}
+        .col-4{width:33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+        @media only screen and (max-width: 768px) {
+            .right{
+                width: 100%;
+            }
+            .col-6{
+                width: 74%;
+            }
+
+
+        }
+        @media all and (max-width: 600px) {
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
+<div class="header"><h1>Mr.Xu</h1></div>
+<div class="row">
+    <div class="col-3 menu">
+        <ul>
+            <li>性别：男</li>
+            <li>爱好：女</li>
+            <li>身高：173cm</li>
+            <li>体重：60Kg</li>
+            <li>性格：随和</li>
+            <li>灵魂：有趣</li>
+            <li>从此了无牵挂</li>
+            <li>我会把我当初为你放弃的东西全赎回来</li>
+            <li>但是天总会黑，人总要离别。</li>
+            <li>不知怎么的，总感觉少了点东西</li>
+        </ul>
+    </div>
+    <div class="col-6">
+        <img src="https://ftp.bmp.ovh/imgs/2019/10/d89c7fdc086baab1.png" alt="徐坦彪" title="Mr.Xu" width="100%">
+        <h1>简介</h1>
+        怎么会忘了情，让我丢了你 傻傻的还以为能够永远在一起
+        <p>小王子喜欢玫瑰花，喜欢的不是玫瑰花本身，而是他在玫瑰花身上花费的时间和心血 </p>
 
-<h1>我的微信授权页</h1>
+        <div class="text">--By 知乎</div>
+    </div>
+    <div class="col-3 right">
+        <div class="aside">
+            <h2>你的目标是什么？</h2>
+            <p>优秀</p>
+            <h2>现在怎么样了?</h2>
+            <p>还可以</p>
+            <h2>就这样了？</h2>
+            <p>不</p>
+            <h2>还能坚持De下去吗？</h2>
+            <p>能</p>
+        </div>
+    </div>
+</div>
 
+<div class="footer">
+    <footer>Copyright © 2019-2020 Mr.Xu</footer>
+</div>
 </body>
 </html>
