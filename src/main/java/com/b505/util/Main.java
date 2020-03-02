@@ -12,10 +12,14 @@ public class Main {
 
     public static void main(String [] args){
 
+
+        //测试 获取ticket是否成功
         System.out.println("  Ticket是："+AdvancedUtil.getJSApiTicket());
 
 
 /*
+        //发送模板消息
+
         Template tem=new Template();
         tem.setTemplateId("GnpJCY5J7awYlTBOrHvCGzClENiL7jmBDn_wIHVosRk");
         tem.setTopColor("#00DD00");
